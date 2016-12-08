@@ -1,7 +1,16 @@
 console.log( 'genero sourced' );
 
 $( document ).ready( function(){
-  console.log( 'JQ' );
+  var displayAwards = function( awards ){
+    console.log( 'in displayAwards:', awards );
+    // loop through all awards and display on DOM
+    // empty ul prior to append
+    $( '#awardsOut' ).html('');
+    for (var i = 0; i < awards.length; i++) {
+      // append a li for each award
+      $( '#awardsOut' ).append( '<li>' + awards[i].event + ', ' + awards[i].athlete + ': ' + awards[i].award + '</li>' )
+    } // end for
+  }; // end displayAwards
 
   // test get function
   var getData = function(){
@@ -35,6 +44,8 @@ $( document ).ready( function(){
       data: objectToSend,
       success: function( response ){
         console.log( 'back from post call:', response );
+        // display award on document
+        displayAwards( response.allAwards );
       },
       error: function(){
         console.log( 'error with ajax call...');
