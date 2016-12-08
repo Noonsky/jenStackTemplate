@@ -31,7 +31,7 @@ $( document ).ready( function(){
     console.log( 'sending:', objectToSend );
     $.ajax({
       type: 'POST',
-      url: '/testPost',
+      url: '/addAward',
       data: objectToSend,
       success: function( response ){
         console.log( 'back from post call:', response );
