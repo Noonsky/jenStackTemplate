@@ -21,10 +21,14 @@ $( document ).ready( function(){
   // test get function
   var postData = function(){
     console.log( 'in postData' );
+    // get user info
     // assemble object to send
     var objectToSend={
-      tester: 'testy'
+      event: $( '#eventIn' ).val(),
+      athlete: $( '#athleteIn' ).val(),
+      award: $( '#awardIn' ).val()
     }; // end object to send
+    console.log( 'sending:', objectToSend );
     $.ajax({
       type: 'POST',
       url: '/testPost',
@@ -43,9 +47,9 @@ $( document ).ready( function(){
     console.log( 'in testGetButton on click' );
     getData();
   }); // end testGetButton
-  $( '#testPostButton' ).on( 'click', function(){
-    console.log( 'in testPostButton on click' );
+  $( '#addAwardButton' ).on( 'click', function(){
+    console.log( 'in addAwardButton on click' );
     postData();
-  }); // end testGetButton
+  }); // end addAwardButton
 
 }); //end doc ready
