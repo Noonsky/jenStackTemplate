@@ -18,12 +18,12 @@ app.get( '/', function( req, res ){
 }); // end base url
 
 // testGet
-app.get( '/testGet', function( req, res ){
-  console.log( 'testGet url hit' );
+app.get( '/getAwards', function( req, res ){
+  console.log( 'getAwards url hit' );
   // do work here
   // assemble object to return
   var objectToReturn = {
-    field0: 'I came from testGet on server'
+    allAwards: awards
   }; // end object to return
   // return objectToReturn
   res.send( objectToReturn );
